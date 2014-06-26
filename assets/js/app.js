@@ -13,10 +13,14 @@ Nox('App',
 
     app.fn.addListeners = function() {
       this.todoInput.on('newTodo', this.addTodo.bind(this));
+
+      this.wrapper.querySelector('.remove-all-todos').addEventListener('click', this.removeAll.bind(this));
     };
 
     app.fn.addTodo = function(value) {
       var newTodo = new todoMessage(value);
+
+      this.todos.push(newTodo);
 
       this.wrapper.querySelector('#todo-messages').appendChild(newTodo.render());
 
@@ -25,6 +29,14 @@ Nox('App',
 
     app.fn.removeTodo = function(todo) {
       todo.el.parentNode.removeChild(todo.el);
+    };
+
+    app.fn.removeAll = function() {
+      this.todos.forEach(function(todo) {
+        todo.el.parentNode.removeChild(todo.el);
+      });
+
+      this.todos = [];
     };
   }
 );
