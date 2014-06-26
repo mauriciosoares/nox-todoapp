@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Todo - Nox</title>
+</head>
+<body>
+  <div id="app">
+    <input type="text" id="todo-input">
+    <ul id="todo-messages">
+
+    </ul>
+  </div>
+
+  <script src="assets/js/libs/nox.min.js"></script>
+  <script src="assets/js/views/todoInput.js"></script>
+  <script src="assets/js/views/todoMessage.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      new App(document.getElementById('app'));
+    });
+  </script>
+</body>
+</html>
